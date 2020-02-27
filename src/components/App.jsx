@@ -1,9 +1,12 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import 'site_media/styles/base.less';
+import 'site_media/styles/base.css';
 import store from 'utils/store';
 import MatterManager from 'components/sections/MatterManager';
+import {
+    SandBox
+} from "components/lib";
 
 /**
  * @description
@@ -13,7 +16,9 @@ import MatterManager from 'components/sections/MatterManager';
 const App = () => {
   return (
       <Provider store={store}>
-          <MatterManager/>
+          <SandBox>
+              <MatterManager/>
+          </SandBox>
       </Provider>
   );
 };
