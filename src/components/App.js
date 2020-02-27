@@ -1,5 +1,5 @@
 import React from 'react';
-// import 'site_media/styles/base.less';
+import 'site_media/styles/base.less';
 
 function App() {
   return (
