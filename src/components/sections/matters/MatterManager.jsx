@@ -21,13 +21,23 @@ import MatterViewer from './MatterViewer';
  */
 const MatterManager = ({
                            matters,
-                           getMatters
+                           getMatters,
+                           selectedMatterId
                        }) => {
 
     useEffect(() => {
         getMatters();
     }, [null]);
 
+    /**
+     * @descr
+     * @param item
+     * @returns {*}
+     */
+    const renderItem = item => {
+        item = {...item, selected: item.id === selectedMatterId}
+        return <MatterListItem {...item}/>;
+    };
 
     return (
         <div className="matter-app">
@@ -36,7 +46,7 @@ const MatterManager = ({
                 <SideList
                     title='Inbox'
                     items={matters}
-                    render={item => <MatterListItem {...item}/>}
+                    render={renderItem}
                     className="matters-list"/>
                 <MatterViewer/>
             </div>
@@ -47,10 +57,14 @@ const MatterManager = ({
 
 MatterManager.defaultProps = {
     matters: [],
-    getMatters: _ => true
+    getMatters: _ => true,
+    selectedMatterId: -1
 };
 
-const mapStateToProps = ({matters}) => ({matters: matters.mattersList});
+const mapStateToProps = ({matters}) => ({
+    matters: matters.mattersList,
+    selectedMatterId: matters.selectedId
+});
 
 export default connect(mapStateToProps, {
     getMatters,

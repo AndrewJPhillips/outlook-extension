@@ -47,6 +47,7 @@ body {
 }
 .matter-app .content-wrapper {
   display: flex;
+  height: 100%;
 }
 .matter-app .content-wrapper .matters-list {
   flex: 0 1 30%;
@@ -57,6 +58,9 @@ body {
   display: flex;
   align-items: center;
   cursor: pointer;
+}
+.matter-app .content-wrapper .matters-list li.selected {
+  background-color: rgba(128, 99, 246, 0.11);
 }
 .matter-app .content-wrapper .matters-list li .detail {
   padding: 10px;
@@ -73,5 +77,26 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.matter-app .content-wrapper .matter .summary {
+  font-size: 21px;
+  border-bottom: 2px solid #efefef;
+  padding: 24px;
+}
+.matter-app .content-wrapper .matter .from {
+  display: flex;
+  padding: 18px;
+  align-items: center;
+}
+.matter-app .content-wrapper .matter .from .avatar {
+  margin-right: 8px;
+}
+.matter-app .content-wrapper .matter hr {
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #efefef, rgba(0, 0, 0, 0));
+}
+.matter-app .content-wrapper .matter .content {
+  padding: 20px 40px;
 }
 /*# sourceMappingURL=base.css.map */

@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Avatar} from 'components/lib';
 
 const MatterViewer = ({
     matter,
@@ -13,7 +14,15 @@ const MatterViewer = ({
 
         return (
             <div className="matter">
-                <div>{summary}</div>
+                <div className="summary">{summary}</div>
+                <div className="from">
+                    <Avatar display={from[0]} />
+                    {from}
+                </div>
+                <hr/>
+                <div className="content">
+                    {content}
+                </div>
             </div>
         )
     };

@@ -6,6 +6,7 @@
   .content-wrapper {
 
     display: flex;
+    height: 100%;
 
     .matters-list {
       flex: 0 1 30%;
@@ -15,6 +16,10 @@
         display: flex;
         align-items: center;
         cursor: pointer;
+
+        &.selected {
+          background-color: fade(@accent, 11%);
+        }
 
         .detail {
           padding: 10px;
@@ -40,6 +45,30 @@
 
     .matter {
 
+      .summary {
+        font-size: 21px;
+        border-bottom: 2px solid #efefef;
+        padding: 24px;
+      }
+
+      .from {
+        display: flex;
+        padding: 18px;
+        align-items: center;
+
+        .avatar {
+          margin-right: 8px;
+        }
+      }
+      hr {
+        border: 0;
+        height: 2px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), @border-color, rgba(0, 0, 0, 0));
+      }
+
+      .content {
+        padding: 20px 40px;
+      }
     }
   }
 }

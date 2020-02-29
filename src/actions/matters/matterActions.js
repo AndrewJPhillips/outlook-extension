@@ -19,6 +19,13 @@ export const getMatters = () => async dispatch => {
         payload
     });
 
+    if(payload.length) {
+        dispatch({
+            type: SELECT_MATTER,
+            payload: payload[0]['id']
+        });
+    }
+
 };
 
 /**
