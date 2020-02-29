@@ -1,0 +1,45 @@
+@import "../var";
+
+.matter-app {
+  height: 100%;
+
+  .content-wrapper {
+
+    display: flex;
+
+    .matters-list {
+      flex: 0 1 30%;
+      border-right: 1px solid @border-color;
+      li {
+        padding: 10px 18px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        .detail {
+          padding: 10px;
+
+          .name {
+            font-weight: 700;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .summary {
+            font-size: 14px;
+            margin-top: 3px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+
+      }
+    }
+
+    .matter {
+
+    }
+  }
+}

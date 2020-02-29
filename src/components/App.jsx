@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 
 import 'site_media/styles/base.css';
 import store from 'utils/store';
-import MatterManager from 'components/sections/MatterManager';
+import MatterManager from 'components/sections/matters/MatterManager';
 import {
     SandBox
 } from "components/lib";

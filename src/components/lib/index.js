@@ -1,5 +1,11 @@
+import Avatar from './Avatar';
 import SandBox from './SandBox';
+import SideList from './SideList';
+import ToolBar from './ToolBar';
 
 export {
-    SandBox
+    Avatar,
+    SandBox,
+    SideList,
+    ToolBar
 }
