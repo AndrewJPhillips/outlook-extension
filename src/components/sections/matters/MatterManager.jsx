@@ -1,6 +1,8 @@
 import React, {Fragment, useEffect} from 'react';
 import {connect} from "react-redux";
-import {getMatters} from "actions/matters";
+import {
+    getMatters,
+} from "actions/matters";
 
 import {
     SideList,
@@ -26,8 +28,6 @@ const MatterManager = ({
         getMatters();
     }, [null]);
 
-    console.log(matters)
-
 
     return (
         <div className="matter-app">
@@ -36,7 +36,7 @@ const MatterManager = ({
                 <SideList
                     title='Inbox'
                     items={matters}
-                    render={MatterListItem}
+                    render={item => <MatterListItem {...item}/>}
                     className="matters-list"/>
                 <MatterViewer/>
             </div>
@@ -50,8 +50,8 @@ MatterManager.defaultProps = {
     getMatters: _ => true
 };
 
-const mapStateToProps = ({matters}) => ({matters});
+const mapStateToProps = ({matters}) => ({matters: matters.mattersList});
 
 export default connect(mapStateToProps, {
-    getMatters
+    getMatters,
 })(MatterManager);

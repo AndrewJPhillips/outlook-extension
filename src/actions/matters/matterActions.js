@@ -1,5 +1,6 @@
 import {
-    GET_MATTERS
+    GET_MATTERS,
+    SELECT_MATTER
 } from "./types";
 import {
     getMatters as apiGetMatters
@@ -19,3 +20,13 @@ export const getMatters = () => async dispatch => {
     });
 
 };
+
+/**
+ * @description
+ * @param id
+ * @returns {{payload: *, type: string}}
+ */
+export const selectMatter = id => ({
+    type: SELECT_MATTER,
+    payload: id
+});

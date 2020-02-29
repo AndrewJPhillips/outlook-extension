@@ -1,6 +1,5 @@
 import React from 'react';
 
-import SideListItem from './SideListItem'
 
 /**
  * @description
@@ -24,7 +23,7 @@ const SideList = ({
                 {title}
             </div>
             <ul>
-                {items.map(item => <SideListItem item={item} render={render}/>)}
+                {items.map(item => render(item))}
             </ul>
         </div>
     )

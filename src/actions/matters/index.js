@@ -1,3 +1,9 @@
-import {getMatters} from './matterActions';
+import {
+    getMatters,
+    selectMatter
+} from './matterActions';
 
-export {getMatters};
+export {
+    getMatters,
+    selectMatter
+};
