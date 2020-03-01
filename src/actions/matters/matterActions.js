@@ -1,6 +1,7 @@
 import {
     GET_MATTERS,
-    SELECT_MATTER
+    SELECT_MATTER,
+    READ_MATTER
 } from "./types";
 import {
     getMatters as apiGetMatters
@@ -20,20 +21,36 @@ export const getMatters = () => async dispatch => {
     });
 
     if(payload.length) {
+        const {id} = payload[0];
         dispatch({
             type: SELECT_MATTER,
-            payload: payload[0]['id']
+            payload: id
+        });
+        dispatch({
+            type: READ_MATTER,
+            payload: id
         });
     }
 
 };
 
 /**
- * @description
- * @param id
+ * @description Will select a matter to read
+ * @param {integer} id - the matter id
  * @returns {{payload: *, type: string}}
  */
 export const selectMatter = id => ({
     type: SELECT_MATTER,
+    payload: id
+});
+
+
+/**
+ * @description Will mark a matter as read
+ * @param {integer} id - the matter id
+ * @returns {{payload: *, type: string}}
+ */
+export const readMatter = id => ({
+    type: READ_MATTER,
     payload: id
 });

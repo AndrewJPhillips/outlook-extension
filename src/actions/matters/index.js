@@ -1,9 +1,11 @@
 import {
     getMatters,
-    selectMatter
+    selectMatter,
+    readMatter
 } from './matterActions';
 
 export {
     getMatters,
-    selectMatter
+    selectMatter,
+    readMatter
 };

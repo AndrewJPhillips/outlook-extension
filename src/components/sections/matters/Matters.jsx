@@ -1,42 +1,61 @@
-import React, {Fragment, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {connect} from "react-redux";
+
 import {
     getMatters,
 } from "actions/matters";
 
 import {
     SideList,
-    ToolBar
+    ToolBar,
+    Loader
 } from 'components/lib';
 
 import MatterListItem from './MatterListItem';
 import MatterViewer from './MatterViewer';
 
 /**
- * @description MatterManager is responsible for organsing matters.
+ * @description Matters is responsible for organising matters.
  * @param {array} matters - Matters for particular user
  * @param {function} getMatters - gets matters via redux
+ * @param {integer} selectedMatterId - id of selected matter
  * @returns {*}
  * @constructor
  */
-const MatterManager = ({
+const Matters = ({
                            matters,
                            getMatters,
                            selectedMatterId
                        }) => {
 
+    // Confirms loaded- I would probably make a custom hook for this
+    const [contentLoaded, setLoadedStatus] = useState(false);
+
     useEffect(() => {
-        getMatters();
+        getMatters().then(() => {
+            setLoadedStatus(true);
+        })
     }, [null]);
 
+    const loaderList = [{id:0}, {id:1}, {id:2}, {id:3}, {id:4}];
+
     /**
-     * @descr
+     * @description
      * @param item
      * @returns {*}
      */
     const renderItem = item => {
-        item = {...item, selected: item.id === selectedMatterId}
+        item = {...item, selected: item.id === selectedMatterId};
         return <MatterListItem {...item}/>;
+    };
+
+
+    /**
+     * @description Renders loaders when not finished loading
+     * @returns {*}
+     */
+    const renderListItemLoader = () => {
+        return <Loader />
     };
 
     return (
@@ -45,8 +64,8 @@ const MatterManager = ({
             <div className="content-wrapper">
                 <SideList
                     title='Inbox'
-                    items={matters}
-                    render={renderItem}
+                    items={contentLoaded ? matters : loaderList}
+                    render={contentLoaded ? renderItem : renderListItemLoader}
                     className="matters-list"/>
                 <MatterViewer/>
             </div>
@@ -55,8 +74,8 @@ const MatterManager = ({
     )
 };
 
-MatterManager.defaultProps = {
-    matters: [],
+Matters.defaultProps = {
+    matters: null,
     getMatters: _ => true,
     selectedMatterId: -1
 };
@@ -68,4 +87,4 @@ const mapStateToProps = ({matters}) => ({
 
 export default connect(mapStateToProps, {
     getMatters,
-})(MatterManager);
+})(Matters);

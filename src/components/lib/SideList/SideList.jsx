@@ -1,20 +1,19 @@
-import React from 'react';
-
+import React, {Fragment} from 'react';
 
 /**
- * @description
- * @param title
- * @param items
- * @param render
- * @param className
+ * @description Renders a list of of items with a title
+ * @param {string} title - title to be shown above the list
+ * @param {array} items - items to be passe to renderProps
+ * @param className - className to be added to the list
+ * @param render - will be called on each item, should returns an `li`
  * @returns {*}
  * @constructor
  */
 const SideList = ({
                       title,
                       items,
-                      render,
-                      className
+                      className,
+                      render
                   }) => {
 
     return (
@@ -23,7 +22,7 @@ const SideList = ({
                 {title}
             </div>
             <ul>
-                {items.map(item => render(item))}
+                {items.map(item => <Fragment key={item.id}>{render(item)}</Fragment>)}
             </ul>
         </div>
     )
@@ -33,8 +32,8 @@ const SideList = ({
 SideList.defaultProps = {
     title: '',
     items: [],
-    render: () => true,
-    className: ''
+    className: '',
+    render: () => true
 };
 
 export default SideList;

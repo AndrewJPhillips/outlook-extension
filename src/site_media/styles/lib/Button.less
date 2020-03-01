@@ -1,0 +1,21 @@
+@import '../var';
+
+button:focus {outline:0;}
+
+.btn {
+  padding: 11px;
+  color: #FFF;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background-color 300ms ease-in-out;
+
+  &-primary {
+    background-color: @accent;
+    &:hover {
+      background-color: fade(@accent, 88%);
+    }
+  }
+}
