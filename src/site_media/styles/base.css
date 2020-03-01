@@ -39,7 +39,7 @@ button:focus {
     background-color: rgba(128, 99, 246, 0.07);
   }
   50% {
-    background-color: rgba(128, 99, 246, 0.03);
+    background-color: rgba(128, 99, 246, 0.1);
   }
   100% {
     background-color: rgba(128, 99, 246, 0.07);
@@ -50,8 +50,8 @@ button:focus {
   height: 10px;
   background-color: rgba(128, 99, 246, 0.07);
   border-radius: 10px;
-  -webkit-animation: pulse 1.5s infinite;
-  animation: pulse 1.5s infinite;
+  -webkit-animation: pulse 2s infinite;
+  animation: pulse 2s infinite;
 }
 .sandbox {
   margin: 48px 0 0 210px;

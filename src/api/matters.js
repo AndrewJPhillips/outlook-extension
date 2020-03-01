@@ -105,7 +105,7 @@ export const getMatters = () => {
     return new Promise(resolve =>  {
         setTimeout(() => {
             resolve(MATTERS);
-        }, 2000);
+        }, 3500);
     });
 
 };
